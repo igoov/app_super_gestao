@@ -29,6 +29,10 @@ Route::get('/rota2', function () {
 
 //Route::redirect('/rota2', '/rota1');
 
+Route::fallback(function (){
+    echo 'A rota acessada nao existe. <a href="'.route('site.index').'">clique aqui para ir para a pagina inicial';
+});
+
 /* Verbo http 
 get
 post
