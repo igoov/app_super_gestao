@@ -12,24 +12,21 @@ Route::get('/contato', [ContatoController::class, 'contato']);
 Route::get('/sobre-nos', [SobreNosController::class, 'index']);
 //nome, categoria, assunto, mensagem
 
-Route::get('/contato/{nome?}/{categoria?}/{assunto?}/{mensagem?}',
+Route::get(
+    '/contato/{nome}/{categoria_id}',
     function(
         string $nome = 'desconhecido', 
-        string $categoria = 'Informacao', 
-        string $assunto = 'Contato', 
-        string $mensagem = 'mensagem nao informada'
-        ){
-        echo "Estamos aqui: $nome - $categoria - $assunto - $mensagem";
+        int $categoria_id = 1 // 1 - 'Informacao' 
+    ){
+        echo "Estamos aqui: $nome - $categoria_id";
     }
-);
+)->where('categoria_id', '[0-9]+')->where('nome','[A-Za-z]+');
 
 /* Verbo http 
-
 get
 post
 put
 patch 
 delete 
 options
-
 */
