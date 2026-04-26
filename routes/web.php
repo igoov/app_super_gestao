@@ -25,7 +25,6 @@ Route::get('/teste/{p1}/{p2}', [TesteController::class, 'teste'])->name('teste')
 Route::fallback(function (){
     echo 'A rota acessada nao existe. <a href="'.route('site.index').'">clique aqui para ir para a pagina inicial';
 });
-
 /* Verbo http 
 get
 post
