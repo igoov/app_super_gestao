@@ -6,11 +6,20 @@
 
     @php
         /*
-        if  (isset($variavel)) {} //retornar true se a variavel estivedr definida
+        if  (empty($variavel)) {} //retornar true se a variavel estiver vazia
+        - ''
+        - 0
+        - 0.0
+        -'0'
+        -Null
+        -false
+        -array()
+        -$var
         */
     @endphp  
 
 @isset($fornecedores)
+
     Fornecedor: {{ $fornecedores[0]['nome'] }}
     <br>
     Status: {{ $fornecedores[0]['status'] }}
@@ -18,5 +27,10 @@
 
     @isset($fornecedores[0]['cnpj'])
         CNPJ: {{ $fornecedores[0]['cnpj'] }}
+        @empty($fornecedores[0]['cnpj'])
+         -Vazio
+        @endempty
+
     @endisset
+
 @endisset
