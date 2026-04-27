@@ -19,19 +19,19 @@
 @isset($fornecedores)
 
     @forelse($fornecedores as $indice => $fornecedor)
-        Fornecedor: {{ $fornecedor['nome'] }}
+        Fornecedor: @{{ $fornecedor['nome'] }}
         @php $fornecedor['nome'] = 'Outro nome para o fornecedor' @endphp 
         <br>
-        Status: {{ $fornecedor['status'] }}
+        Status: @{{ $fornecedor['status'] }}
         <br>
-        CNPJ: {{ $fornecedor['cnpj'] ?? ''}}
+        CNPJ: @{{ $fornecedor['cnpj'] ?? ''}}
         <!--
             $variavel testada nao estiver definida (isset)
             ou
             $variavel testada possuir o valor null
         -->
         <br>
-        Telefone: ({{ $fornecedor['ddd'] ?? ''}}) {{ $fornecedor['telefone'] ?? ''}}
+        Telefone: (@{{ $fornecedor['ddd'] ?? ''}}) {{ $fornecedor['telefone'] ?? ''}}
         <hr>
     @empty
         Nao existem fornecedores cadastrados
