@@ -18,22 +18,20 @@
 
 @isset($fornecedores)
 
-    @php $i = 1 @endphp
-    @while(isset($fornecedores[$i]))
-        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+    @foreach($fornecedores as $indice => $fornecedor)
+        Fornecedor: {{ $fornecedor['nome'] }}
+        @php $fornecedor['nome'] = 'Outro nome para o fornecedor' @endphp 
         <br>
-        Status: {{ $fornecedores[$i]['status'] }}
+        Status: {{ $fornecedor['status'] }}
         <br>
-        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? ''}}
+        CNPJ: {{ $fornecedor['cnpj'] ?? ''}}
         <!--
             $variavel testada nao estiver definida (isset)
             ou
             $variavel testada possuir o valor null
         -->
         <br>
-        Telefone: ({{ $fornecedores[$i]['ddd'] ?? ''}}) {{ $fornecedores[$i]['telefone'] ?? ''}}
+        Telefone: ({{ $fornecedor['ddd'] ?? ''}}) {{ $fornecedor['telefone'] ?? ''}}
         <hr>
-        @php $i++ @endphp
-    @endwhile
-    
+    @endforeach
 @endisset
