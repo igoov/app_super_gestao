@@ -4,12 +4,14 @@
 
 {{--Fica o comentario que sera descartadoo peo interpretador do blade--}}
 
-@php
-    //para comentarios de uma linha
+    @php
+    
+    @endphp  
 
-    /*
-        Para comentarios de multiplas linhas
-    */
-
-    echo 'Texto de teste';
-@endphp
+    @if (count($fornecedores) > 0 && count($fornecedores) < 10)
+        <h3>Existem alguns fornecedores cadastrados</h3>
+    @elseif(count($fornecedores) > 10)
+        <h3>Existem vários fornecedores cadastrados</h3>
+    @else
+        <h3>Ainda não existem fornecedores cadastrados</h3>
+    @endif
