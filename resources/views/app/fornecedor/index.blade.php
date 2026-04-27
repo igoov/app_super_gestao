@@ -1,7 +1,5 @@
 <h3>Fornecedor</h3>
 
-{{ 'Texto de teste'}}
-
 {{--Fica o comentario que sera descartadoo peo interpretador do blade--}}
 
     @php
@@ -20,15 +18,30 @@
 
 @isset($fornecedores)
 
-    Fornecedor: {{ $fornecedores[0]['nome'] }}
+    Fornecedor: {{ $fornecedores[1]['nome'] }}
     <br>
-    Status: {{ $fornecedores[0]['status'] }}
+    Status: {{ $fornecedores[1]['status'] }}
     <br>
-    CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'Dado nao preenchido'}}
+    CNPJ: {{ $fornecedores[1]['cnpj'] ?? ''}}
     <!--
         $variavel testada nao estiver definida (isset)
         ou
         $variavel testada possuir o valor null
     -->
+    <br>
+    Telefone: ({{ $fornecedores[1]['ddd'] ?? ''}}) {{ $fornecedores[1]['telefone'] ?? ''}}
+    @switch($fornecedores[1]['ddd'])
+        @case ('11')
+            Sao Paulo - SP
+            @break
+        @case ('32')
+            Juiz de Fora - MG
+            @break
+        @case ('89')
+            Picos - PI
+            @break
+        @default
+            Estado nao indentificado
+    @endswitch
 
 @endisset
