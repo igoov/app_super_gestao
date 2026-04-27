@@ -19,21 +19,30 @@
 @isset($fornecedores)
 
     @forelse($fornecedores as $indice => $fornecedor)
-        Fornecedor: @{{ $fornecedor['nome'] }}
+        Interacao atual: {{ $loop->iteration }}
+        <br>
+        Fornecedor: {{ $fornecedor['nome'] }}
         @php $fornecedor['nome'] = 'Outro nome para o fornecedor' @endphp 
         <br>
-        Status: @{{ $fornecedor['status'] }}
+        Status: {{ $fornecedor['status'] }}
         <br>
-        CNPJ: @{{ $fornecedor['cnpj'] ?? ''}}
-        <!--
-            $variavel testada nao estiver definida (isset)
-            ou
-            $variavel testada possuir o valor null
-        -->
+        CNPJ: {{ $fornecedor['cnpj'] ?? ''}}
         <br>
-        Telefone: (@{{ $fornecedor['ddd'] ?? ''}}) {{ $fornecedor['telefone'] ?? ''}}
+        Telefone: ({{ $fornecedor['ddd'] ?? ''}}) {{ $fornecedor['telefone'] ?? ''}}
+        <br>
+        @if($loop->first)
+            Primeira interacao do Loop
+        @endif
+
+        @if($loop->last)
+            Ultima interacao do Loop
+
+            <br>
+            Total de resgistros: {{$loop->count}}
+
+        @endif
         <hr>
     @empty
-        Nao existem fornecedores cadastrados
+        Nao existem fornecedores cadastrados!!!
     @endforelse
 @endisset
