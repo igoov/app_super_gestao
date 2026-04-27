@@ -18,7 +18,7 @@
 
 @isset($fornecedores)
 
-    @foreach($fornecedores as $indice => $fornecedor)
+    @forelse($fornecedores as $indice => $fornecedor)
         Fornecedor: {{ $fornecedor['nome'] }}
         @php $fornecedor['nome'] = 'Outro nome para o fornecedor' @endphp 
         <br>
@@ -33,5 +33,7 @@
         <br>
         Telefone: ({{ $fornecedor['ddd'] ?? ''}}) {{ $fornecedor['telefone'] ?? ''}}
         <hr>
-    @endforeach
+    @empty
+        Nao existem fornecedores cadastrados
+    @endforelse
 @endisset
