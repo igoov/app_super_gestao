@@ -90,14 +90,18 @@ body {
 /* HERO */
 .conteudo-destaque {
     display: flex;
+    align-items: stretch;      /* ← era center, muda para stretch */
+    justify-content: center;
     min-height: 100vh;
-    padding-top: 80px; /* altura do topo */
+    padding-top: 0;            /* ← remove o padding-top */
+    margin-top: 0;
 }
 
-/* 🔥 ajuste mínimo aqui */
 .esquerda,
 .direita {
-    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;         /* ← move o padding para cá, compensando o topo fixo */
 }
 
 .esquerda {
