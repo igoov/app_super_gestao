@@ -1,5 +1,9 @@
 @extends('site.layouts.basico')
 
+@section('titulo')
+    Contato
+@endsection
+
 @section('conteudo')
     <div class="topo">
         <div class="logo">

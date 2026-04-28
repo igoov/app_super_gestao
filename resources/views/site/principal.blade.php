@@ -1,6 +1,11 @@
 @extends('site.layouts.basico')
 @section('conteudo')
 
+@section('titulo')
+    Home
+@endsection
+
+
 {{-- TOPO --}}
 <div class="topo">
     <div class="logo">

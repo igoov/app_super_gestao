@@ -1,5 +1,9 @@
 @extends('site.layouts.basico')
 
+@section('titulo')
+    Sobre Nós
+@endsection
+
 @section('conteudo')
     {{-- TOPO / NAVBAR --}}
     <div class="topo">
