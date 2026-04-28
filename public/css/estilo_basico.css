@@ -20,7 +20,6 @@
     box-sizing: border-box;
 }
 
-/* 🔥 ajuste mínimo aqui */
 html, body {
     height: 100%;
 }
@@ -28,13 +27,13 @@ html, body {
 body {
     font-family: var(--fonte);
     background: var(--cor-fundo);
-    overflow-x: hidden; /* evita qualquer sobra lateral */
+    overflow-x: hidden;
 }
 
 /* TOPO */
 .topo {
     position: fixed;
-    top: 0px;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 100;
@@ -43,8 +42,6 @@ body {
     padding: 15px 40px;
     background: var(--cor-fundo);
     transition: top 0.3s ease;
-
-    /* 🔥 garante que não "vaze" visualmente */
     will-change: top;
 }
 
@@ -90,30 +87,36 @@ body {
 /* HERO */
 .conteudo-destaque {
     display: flex;
-    align-items: stretch;      /* ← era center, muda para stretch */
-    justify-content: center;
-    min-height: 100vh;
-    padding-top: 0;            /* ← remove o padding-top */
-    margin-top: 0;
-}
-
-.esquerda,
-.direita {
-    display: flex;
-    align-items: center;
-    padding-top: 80px;         /* ← move o padding para cá, compensando o topo fixo */
+    height: calc(100vh - 70px); /* ← desconta exatamente o navbar */
+    margin-top: 70px;           /* ← empurra para baixo do navbar */
 }
 
 .esquerda {
     flex: 1.5;
     background: var(--cor-hero);
-    padding: 60px 40px;
+    padding: 60px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* ← centraliza vertical */
+    align-items: flex-start;
 }
 
 .direita {
     flex: 1;
     background: var(--cor-hero-secundario);
-    padding: 40px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* ← centraliza vertical */
+    align-items: flex-start;
+}
+
+.informacoes {
+    width: 100%;
+}
+
+.contato {
+    width: 100%;
 }
 
 /* BADGE */
@@ -123,10 +126,10 @@ body {
     gap: 6px;
     background: rgba(116,198,157,0.15);
     color: var(--cor-acento);
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 20px;
-    font-size: 12px;
-    margin-bottom: 10px;
+    font-size: 13px;
+    margin-bottom: 16px;
 }
 
 .badge-dot {
@@ -138,74 +141,78 @@ body {
 
 h1 {
     color: var(--cor-texto-claro);
-    font-size: 32px;
+    font-size: 40px;
     line-height: 1.3;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
 }
 
 .hero-desc {
     color: rgba(255,255,255,0.6);
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 /* FEATURES */
 .hero-features {
-    margin-top: 25px;
+    margin-top: 40px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 24px;
 }
 
 .feature-item {
     display: flex;
-    gap: 10px;
+    gap: 14px;
 }
 
 .feature-icon {
     background: rgba(116,198,157,0.15);
-    padding: 8px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 10px;
     flex-shrink: 0;
     height: fit-content;
 }
 
 .feature-title {
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     display: block;
 }
 
 .feature-desc {
-    font-size: 12px;
+    font-size: 13px;
     color: rgba(255,255,255,0.5);
     display: block;
-    margin-top: 2px;
+    margin-top: 4px;
+    line-height: 1.5;
 }
 
 /* FORM */
 .contato h1 {
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
 .contato p {
     color: rgba(255,255,255,0.6);
-    font-size: 13px;
-    margin-bottom: 5px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.6;
 }
 
 input,
 select,
 textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 13px 16px;
+    margin-top: 16px;
     background: var(--cor-input-hero);
     border: 1px solid var(--cor-borda-escura);
-    border-radius: 6px;
+    border-radius: 8px;
     color: #fff;
     font-family: var(--fonte);
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
 }
 
@@ -219,16 +226,21 @@ select option {
     color: #fff;
 }
 
+textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
 button {
     width: 100%;
-    margin-top: 10px;
-    padding: 12px;
+    margin-top: 20px;
+    padding: 15px;
     background: var(--cor-primaria);
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -291,11 +303,14 @@ button:hover {
 @media (max-width: 900px) {
     .conteudo-destaque {
         flex-direction: column;
+        height: auto;
+        margin-top: 70px;
     }
 
     .esquerda,
     .direita {
         width: 100%;
+        padding: 50px 30px;
     }
 
     .topo {
