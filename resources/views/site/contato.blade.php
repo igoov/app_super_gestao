@@ -50,7 +50,7 @@
                 <h1>Fale Conosco</h1>
                 <p>Responderemos o mais breve possível.</p>
                 
-                <form action="{{ route('site.contato') }}" method="POST">
+                <form action="{{ route('site.contato') }}" method="get">
                     @csrf
                     <input name="nome" type="text" placeholder="Seu Nome">
                     <input name="telefone" type="text" placeholder="Seu Telefone">
