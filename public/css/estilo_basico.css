@@ -87,8 +87,9 @@ body {
 /* HERO */
 .conteudo-destaque {
     display: flex;
-    height: calc(100vh - 70px); /* ← desconta exatamente o navbar */
-    margin-top: 70px;           /* ← empurra para baixo do navbar */
+    /* Isso garante que, mesmo sem texto, a página tenha o tamanho da tela */
+    min-height: 100vh; 
+    padding-top: 70px; /* Espaço para a navbar fixa não cobrir o texto */
 }
 
 .esquerda {
