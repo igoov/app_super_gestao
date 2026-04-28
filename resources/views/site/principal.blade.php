@@ -86,20 +86,8 @@
         <div class="contato">
             <h1>Contato</h1>
             <p>Caso tenha qualquer dúvida por favor entre em contato com nossa equipe pelo formulário abaixo.</p>
-            <form action="{{ route('site.contato') }}" method="POST">
-                @csrf
-                <input type="text" name="nome" placeholder="Nome" class="borda-branca" required>
-                <input type="tel" name="telefone" placeholder="Telefone" class="borda-branca">
-                <input type="email" name="email" placeholder="E-mail" class="borda-branca" required>
-                <select name="motivo" class="borda-branca" required>
-                    <option value="">Qual o motivo do contato?</option>
-                    <option value="duvida">Dúvida</option>
-                    <option value="elogio">Elogio</option>
-                    <option value="reclamacao">Reclamação</option>
-                </select>
-                <textarea name="mensagem" class="borda-branca" rows="4" placeholder="Preencha aqui a sua mensagem" required></textarea>
-                <button type="submit">ENVIAR</button>
-            </form>
+                @component('site.layouts._components.form_contato')
+                @endcomponent
         </div>
     </div>
 </div>
