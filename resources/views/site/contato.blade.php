@@ -6,7 +6,6 @@
 
 @section('conteudo')
     
-
         <div class="menu">
             <ul>
                 <li><a href="{{ route('site.index') }}">Principal</a></li>
@@ -49,8 +48,23 @@
             <div class="contato">
                 <h1>Fale Conosco</h1>
                 <p>Responderemos o mais breve possível.</p>
-                    @component('site.layouts._components.form_contato')
-                    @endcomponent
+
+                {{-- MUDANÇA AQUI: Mensagem só aparece se houver sucesso na sessão --}}
+                @if(session('sucesso'))
+                    <div style="border-left: 4px solid var(--cor-acento); background: rgba(45, 106, 79, 0.1); padding: 20px; margin-bottom: 30px; border-radius: 4px;">
+                      <h3 style="color: var(--cor-acento); margin: 0 0 10px 0; font-size: 1.2em;">Mensagem Enviada!</h3>
+                         <p style="color: #ffffff; margin: 0; opacity: 0.8; line-height: 1.5;">
+                               A nossa equipe analisará a sua mensagem e retornaremos o mais brevemente possível.  
+
+                              <strong>Nosso tempo médio de resposta é de 48 horas.</strong>
+                         </p>
+                     </div>
+                @endif
+
+
+                {{-- MUDANÇA AQUI: Removido o texto fixo de dentro do componente --}}
+                @component('site.layouts._components.form_contato')
+                @endcomponent
             </div>
         </div>
     </div>
@@ -65,7 +79,6 @@
         <h2>Redes Sociais</h2>
         <span>Siga a gente</span>
         <div class="redes-icones">
-            {{-- Ícone Instagram --}}
             <a href="#" title="Instagram">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -80,7 +93,6 @@
                     <circle cx="4" cy="4" r="2"/>
                 </svg>
             </a>
-            {{-- Ícone GitHub --}}
             <a href="#" title="GitHub">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -96,7 +108,8 @@
         </div>
         <h2>Contato</h2>
         <span>(11) 3333-4444</span>
-        <br>
+          
+
         <span>supergestao@dominio.com.br</span>
     </div>
     <div class="localizacao">
