@@ -23,6 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+       //Schema::drop('fornecedores');        
         Schema::dropIfExists('fornecedores');
     }
 };
