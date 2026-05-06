@@ -19,8 +19,8 @@
         <div class="esquerda">
             <div class="informacoes">
                 <div class="badge-online">
-                    <div class="badge-dot"></div>
-                    Sistema Online
+                <span class="badge-dot"></span>
+                Sistema Online
                 </div>
                 <h1>Entre em contato conosco</h1>
                 <p class="hero-desc">

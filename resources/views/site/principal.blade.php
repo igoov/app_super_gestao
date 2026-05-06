@@ -24,7 +24,7 @@
         <div class="informacoes">
             <div class="badge-online">
                 <span class="badge-dot"></span>
-                Sistema online
+                Sistema Online
             </div>
             <h1>Sistema Super Gestão</h1>
             <p class="hero-desc">Software para gestão empresarial ideal para sua empresa.</p>
