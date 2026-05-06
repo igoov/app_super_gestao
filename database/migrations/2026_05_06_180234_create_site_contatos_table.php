@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('telefone', 20);
             $table->string('email', 80);
-            $table->interger('motivo_contato');
-            $table->text('mensagem', 50);
+            $table->integer('motivo_contato');
+            $table->text('mensagem');
         });
     }
 
