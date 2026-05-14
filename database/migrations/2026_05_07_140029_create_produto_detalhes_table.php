@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('produto_detalhes', function (Blueprint $table) {
 
-            //colunas
             $table->id();
+
             $table->unsignedBigInteger('produto_id');
-            $table->float('comprimento', 8, 2);
-            $table->float('largura', 8, 2);
-            $table->float('altura', 8, 2);
+
+            $table->string('comprimento', 20);
+            $table->string('largura', 20);
+            $table->string('altura', 20);
+
             $table->timestamps();
 
-            //constraint
+            //foreign key
             $table->foreign('produto_id')
                   ->references('id')
-                  ->on('produt');
-
-            $table->unique('produto_id');
+                  ->on('produtos');
         });
     }
 
